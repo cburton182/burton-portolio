@@ -1,0 +1,126 @@
+// @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Rammetto+One&family=Ubuntu:wght@300;400;500;700&display=swap");
+
+// @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Poppins:wght@200;300;400;500;600;700&family=Rammetto+One&family=Ubuntu:wght@300;400;500;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=PT+Serif:wght@400;700&family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* font-family: 'Poppins', sans-serif;
+font-family: 'PT Serif', serif;
+font-family: 'Rammetto One', cursive;
+font-family: 'Ubuntu', sans-serif; */
+/* 
+font-family: 'Merriweather', serif;
+font-family: 'PT Serif', serif;
+font-family: 'Ubuntu', sans-serif; */
+
+//COLORS
+//#030303
+$new-white: #f8f8f8;
+$new-grey: #333;
+$new-black: #232323;
+
+$black: #0c0c0c;
+$white: #f1f0f0;
+// $white: #f1ebeb;
+$red: #af081b;
+$dark-blue: #0e2439;
+$blue: #081f7d;
+$light-blue: #0b2bad;
+$powder-blue: #547aa5;
+
+$tea-green: #c5e6a6;
+// $green: #51e161;
+$green: #188c25;
+$dark-green: #0c4613;
+
+$beige: #eee2aa;
+$color-primary: $red;
+$color-secondary: #fbf7f7;
+$color-tertiary: $black;
+$dark-text: $black;
+$medium-text: grey;
+$light-text: $white;
+
+//GRADIENTS
+$gradient-blue: linear-gradient(to right, $dark-blue, $blue, $dark-blue, $blue);
+$gradient-red: linear-gradient(to right, #3a1111, #d62121, #3a1111);
+
+$gradient-btn-hov: linear-gradient(to right, #3ec7e0, #526bf4);
+$gradient-btn: linear-gradient(to right, #e052a0, #f15c41);
+//FONT
+$fs-huge: 4.75rem;
+$fs-xl: 4rem;
+$fs-l: 3rem;
+$fs-m: 2rem;
+$fs-s: 1.8rem;
+$fs-xs: 1.6rem;
+$fs-tiny: 1.2rem;
+
+$ff-headings: "Ubuntu", sans-serif;
+$ff-main: "Ubuntu", sans-serif;
+
+$fw-bold: 700;
+$fw-semi-bold: 500;
+$fw-main: 400;
+$fw-light: 300;
+$fw-xlight: 200;
+
+/* Media Query variables */
+//px / 16 = em;
+$bp-largest: 75em; //1200px
+$bp-large: 68.75em; //1100px
+$bp-medium: 56.25em; //900px
+$bp-small: 37.5em; //600px
+$bp-smallest: 31.25em; //500px
+
+//positioning
+$mg-btm-sm: 1.5rem;
+$mg-btm-m: 2.5rem;
+$mg-btm-l: 4rem;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+::root {
+  // --color-primary: $red;
+  // --color-secondary: $white;
+  // --color-tertiary: $black;
+  // --dark-text: $black;
+  // --medium-text: grey;
+  // --light-text: $white;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 1 rem == 10px;
+  scroll-behavior: smooth;
+
+  //   @media only screen and (max-width: $bp-large) {
+  //     font-size: 50%;
+  //   }
+}
+
+body {
+  /* inherited properties */
+  position: relative;
+  font-family: $ff-main; //Poppins
+  font-weight: $fw-main; //400
+  font-size: $fs-s; //1.8rem
+  line-height: 1.6;
+  color: $dark-text;
+  background-color: $new-white; //white
+  // background-color: $beige; //white
+  // background-image: linear-gradient(to right bottom, $white, $beige);
+}
+
+//r6 l21
+::selection {
+  background-color: $color-primary;
+  color: $white;
+}

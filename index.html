@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css"></link>
+    <link rel="shortcut icon" type="image/png" href="img/spade-title-red.svg" />
+    <script defer src="script.js"></script>
+    <title>Chris Burton</title>
+  </head>
+  <body>
+    <header class="header gradient--4"></header>
+    <nav class="nav">
+      <span>chris burton</span>
+      <img src="img/logoFinal.png" alt="Logo" class="logo">
+      <div class="nav__links">
+        <a href="https://www.linkedin.com/in/christopher-burton-13a002226/" target="_blank" class="nav__link"><img src="img/linkedin.svg" alt="Linkedin link"></a>
+        <a href="#" class="nav__link"><img src="img/github.svg" alt="GitHub link"></a>
+        <a href="#contact" class="nav__link">contact me</a>
+      </div>
+    </nav>
+    <main>
+      <section class="title">
+        <div class="title__icons">
+          <img src="img/javascript.svg" alt="JavasScript">
+          <img src="img/html5.svg" alt="HTML">
+          <img src="img/sass.svg" alt="Sass">
+          <img src="img/node-js.svg" alt="node.js">
+        </div>
+        <div class="title__content">
+          <h1>I'm Chris,</h1>
+          <h2>a JavaScript developer.</h2>
+          <p>Thanks for stopping by!  Check out my projects below.  Reach out if you think I'm a good fit for your team.</p>
+        </div>
+        <a href="#burton-poker" class="title__scroll">
+          <img src="img/scroll-down.svg" alt="down arrow">
+        </a>
+        <!-- <img src="img/chris-2.jpeg" alt="Chris Burton" class="title__pic"> -->
+        
+        
+        <!-- <div class="title__container">
+          <div class="text-holder--left"><span class="text--left"><h1>chris burton</h1></span></div>
+          <span class="divider">|</span>
+          <div class="text-holder--right"><span class="text--right"><h2>software developer</h2></span></div>
+        </div> -->
+
+
+        <!-- <div class="title__content"> -->
+          
+          <!-- <img src="img/spade-title-red.svg" alt="title logo spade" class="title__img shadow-bold">
+          <div class="title__heading-container">
+            <h1 class="heading-primary heading-primary--huge">chris burton</h1>
+            <h1 class="heading-primary heading-primary-xl push-right">
+              web developer
+              <img src="../img/lazy.svg" alt="relaxing" class="lazy">
+            </h1>
+          </div> -->
+
+        <!-- </div> -->
+      </section>
+
+      <!-- PROJECTS SECTION ////////////////////////////////////////// -->
+      
+      <section class="projects">
+
+        <div class="project" id="burton-poker">      
+          <a href="#burton-poker-main" class="project__img project__img--poker" data-target="burton-poker-main"></a>
+          <div class="project__text-container">
+            <h2 class="heading-primary project__heading">burtonPoker</h2>
+            <p class="project__description">
+              Play Texas Holdem against a computer programmed to play sound, mathematical poker. Have fun and try no to lose your chips too quickly!
+            </p>
+            <a href="#burton-poker-main" class="project__link" data-target="burton-poker-main">learn more</a>
+          </div>
+        </div>
+
+        <div class="project-fv" id="burton-poker-main">
+          <!-- fv means 'full-view' -->
+          <div class="project-fv__container">
+            <div class="project-fv__title">
+              <figure class="figure">
+                <video src="img/burton-poker-demo-3.mp4" class="video" autoplay muted loop></video>
+                <fig-caption><span class="skew-bkg">burtonPoker</span.skew-b></fig-caption>
+              </figure>
+              <p>
+                Written in Vanilla Javascript, this code features ES6 classes,  data structures , DOM manupulation, promises, error handling and more.  A fully functional heads-up poker game against an intelligent AI.  Check out the GitHub readme to learn more.
+              </p>
+            </div>
+            <div class="project-fv__content">
+              <div class="content-left">
+                <p class="italic">If you're a player, check out:</p>
+                <h3>the AI</h3>
+                <ul class="list">
+                  <li>
+                    <span class="list-heading">Hand Ranges</span>
+                    <p>Villain uses modern poker theory to balance bluffs, value bets, calls and folds through hand ranges.</p>
+                  </li>
+                  <li>
+                    <span class="list-heading">minimum defence frequency</span>
+                    <p>villain adjusts strategy based on pot odds, making it hard to exploit with unusual bet sizes.</p>
+                  </li>
+                  <li>
+                    <span class="list-heading">Randomizer</span>
+                    <p>villain mixes in low frequency plays to keep you guessing.  Slow played nutted hands, crazy river bluffs.</p>
+                  </li>
+                  <li>
+                    <span class="list-heading">Varied raise sizes</span>
+                    <p>affected by a variety of factors, such as effective stack size.</p>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="content-right">
+                <p class="italic">if you're a programmer, check out:</p>
+                <h3>the Code</h3>
+                <ul class="list">
+                <li>
+                  <span class="list-heading">Lookup Tables</span>
+                  <p>AI decision tree utilizes lookup tables via Maps, allowing the computer to make optimal decisions, considering numerous variables.</p>
+                </li>
+                <li>
+                  <span class="list-heading">Array methods</span>
+                  <p>Arrays are sorted and looped over, scanning for hand strength and possible draws.  See my straight draw evaluator in the moduleName.js module.</p>
+                </li>
+                <li>
+                  <span class="list-heading">Error Handling</span>
+                  <p>Error handling catches invalid bet sizes.</p>
+                </li>
+                <li>
+                  <span class="list-heading">MVC structured OOP</span>
+                  <p>Data modules run separately from view modules.  ES6 classes used in an OOP format.</p>
+                </li>
+              </ul>
+              </div>
+              <div class="project-fv__links">
+                <div class="project-link">
+                  <a href="https://burtonpoker.netlify.app/" target="_blank">
+                    <img src="img/cards-red.svg" alt="burton Poker" class="project-link__img">
+                  </a>
+                  <a href="https://burtonpoker.netlify.app/" target="_blank" class="project-link__text">Play the game</a>
+                </div>
+                <div class="project-link">
+                  <a href="#" target="_blank">
+                    <img src="img/github.svg" alt="burton Poker" class="project-link__img">
+                  </a>
+                  <a href="#" target="_blank" class="project-link__text">See the code</a>
+                </div> <!--end project-link-->
+              </div> <!--end __links-->
+            </div> <!-- end __content-->
+            <a href="#burton-poker" class="collapse" data-target="burton-poker-main">
+              <img src="img/double-up.svg" alt="up" class="collapse__img" data-target="burton-poker-main">
+            </a>
+          </div> <!-- end __container-->
+
+          <div class="project-fv__banner">
+            <img src="img/club.svg" alt="clubs" class="banner-icon"><img src="img/heart.svg" alt="hearts" class="banner-icon"><img src="img/spade.svg" alt="spades" class="banner-icon"><img src="img/diamond.svg" alt="diamonds" class="banner-icon">
+          </div>
+        </div> <!-- end project-fv -->
+
+        <!-- PROJECT 2 //////////////////////////////////////////////-->
+
+        <div class="project project--reverse">
+          <a href="#" class="project__img project__img--zelda"></a>
+          <!-- <img src="../img/zelda.svg" alt="Legend of Zelda Logo" class="project__img shadow-bold"> -->
+          <div class="project__text-container">
+            <h2 class="heading-primary project__heading">Kokiri Shop</h2>
+            <p class="project__description">
+              A demo landing page inspired by the Kokiri Shop from <em>Ocarina of Time</em>.              
+            </p>
+            <a href="#" class="project__link">learn more</a>
+        </div>
+        </div>
+
+        <!-- PROJECT 3 //////////////////////////////////////////////// -->
+
+        <div class="project">
+          <a href="#" class="project__img project__img--react"></a>
+          <!-- <img src="../img/react-native.svg" alt="React Native" class="project__img shadow-bold"> -->
+          <div class="project__text-container">
+            <h2 class="heading-primary project__heading">Bankist</h2>
+            <p class="project__description">
+              A demo banking application coded in Javascript.  Features a login system, date and currency internationalization, and a slew of array methods to handle incoming and outgoing transactions.
+            </p>
+            <a href="#" class="project__link">learn more</a>
+        </div>
+        </div>
+      </section>
+      <section class="contact" id="contact">
+
+        <img src="img/chris-2.jpeg" alt="Chris Burton" class="contact__img">
+
+        <div class="contact__form-container">
+
+          <form name="contact" method="POST" data-netlify="true" class="form">
+                      
+          <div class="socials">
+            <h2>Contact</h2>
+            <p>email: chburton182@gmail.com</p>
+            <a href="https://www.linkedin.com/in/christopher-burton-13a002226/" target="_blank" "><img src="img/linkedin-blue.svg" alt="Linkedin link"></a>
+            <!-- <a href="#contact" class="nav__link">
+              <img src="img/github.svg" alt="GitHub link">
+            </a>
+            <a href="#contact" class="nav__link">
+              <img src="img/github.svg" alt="GitHub link">
+            </a> -->
+          </div>
+
+            <div class="form__group">
+              <input
+                type="text"
+                name="name"
+                class="form__input"
+                placeholder="Name"
+                id="name"
+                required
+              />
+              <label for="name" class="form__label">Name</label>
+            </div>
+
+            <div class="form__group">
+              <input
+                type="email"
+                name="email"
+                class="form__input"
+                placeholder="Email address"
+                id="email"
+                required
+              />
+              <label for="email" class="form__label">Email adress</label>
+            </div>
+
+            <div class="form__group">
+              <textarea class="form__input form__input--msg" placeholder="Message" name="message"></textarea>
+            </div>
+            <button type="submit" class="form__submit">Send</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
