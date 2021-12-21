@@ -124,7 +124,7 @@
 
     img {
       position: relative;
-      width: 7rem;
+      width: 5rem;
       transition: all 0.1s;
     }
 
@@ -178,13 +178,6 @@
   //bckgrnd
   background-color: $color-primary;
   // background-color: rgb(240, 10, 10);
-
-  //miscl
-
-  //transitions
-  & > * {
-    max-width: 140rem;
-  }
 }
 
 .project {
@@ -490,24 +483,51 @@
 }
 
 .contact {
+  /* Contact section will take up 90vh and the form-container will be placed in the center, positioned slightly down on the Y-axis */
   position: relative;
-  display: flex;
-
   width: 100%;
-
-  &__img {
-    flex: 0 0 542px;
-    max-height: 542px;
-  }
+  // height: 90vh;
+  padding: 1rem;
+  background-image: url(../img/logoFinal.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
 
   &__form-container {
-    flex: 1;
-    position: relative;
-    padding: 5rem 9rem 4rem 9rem;
-    &::after {
-      @include contact-bk;
-    }
+    --heading-size: 2.5rem;
+    --social-size: 1.5rem;
+    --placeholder-color: rgb(104, 100, 100);
+    --label-size: 1.2rem;
+    --input-size: 1.4rem;
+    --msg-size: 1.6rem;
+    --msg-pad: 13rem;
+    color: $black;
+    background-color: $new-white;
+
+    font-family: "Ubuntu", sans-serif;
+    /* these above properties will be used or inherited by the form */
+    width: 80rem;
+    min-width: 50%;
+    max-width: 90%;
+    margin: 10% auto 1rem auto;
+    // form width will respond to any changes in width made here.
+
+    transform: scale(0);
+    animation: slide-up 1.2s forwards cubic-bezier(.41,1.5,1,.95);
   }
 }
 // background-color: #c1bfbf;
 // background-image: linear-gradient(315deg, #c1bfbf 0%, #af8231 74%);
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+}

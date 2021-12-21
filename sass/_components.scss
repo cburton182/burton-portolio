@@ -1,13 +1,4 @@
-.logo {
-  width: 5rem;
-
-  &--header {
-    position: fixed;
-    top: 2rem;
-    left: 3rem;
-  }
-}
-
+/* possibly unused */
 .heading-primary {
   width: max-content;
   line-height: 1;
@@ -22,7 +13,7 @@
     font-size: $fs-xl;
   }
 }
-
+/* possibly unused */
 .lazy {
   position: absolute;
   bottom: 20%;
@@ -39,6 +30,7 @@
   } */
 }
 
+/* possibly unused */
 .scroll-arrow {
   &--big {
     position: absolute;
@@ -124,48 +116,106 @@
 }
 
 .form {
+  /* To make this component resusable elsewhere, some property values are defined in parent container, using variables */
+  /* variables needed: --heading-size, --placeholder-color, --label-size, --input-size, --msg-size, --msg-pad */
+  /* font-family & colors inhereted by parent container */
+  /* width defined by parent container; height definined by content */
+  /* Direct children: notch, socials, name, email, email + btn */
   position: relative;
+
+  --form-padding: 3rem;
+  width: 100%;
+  padding: var(--form-padding);
+
   border: 1px solid rgb(36, 35, 35);
   border-radius: 5px;
   @include shadow;
-  // background-color: $white;
-  width: 100%;
-  height: 100%;
-  font-family: "Ubuntu", sans-serif;
-  padding: 2rem;
 
   & > * {
     position: relative;
-    z-index: 1;
+    // z-index: 1;
   }
 
-  h2 {
-    font-weight: 400;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid black;
-    display: inline-block;
+  &__heading,
+  &__heading-secondary {
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    font-weight: 500;
+    background-color: $new-white;
+    padding: 0 5px;
   }
 
-  &__group:not(:last-child) {
+  &__heading {
+    left: 8%;
+    transform: translateY(-50%);
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: var(--heading-size);
+  }
+
+  &__heading-secondary {
+    font-size: var(--social-size);
+    text-transform: lowercase;
+    font-weight: 600;
+    right: 5%;
+  }
+
+  &__notch {
+    /* This is the notch the image will be placed in.  It will scale to the size of the form.  The ::after contains the actual img, witch will scale to the curve of the notch.  Changing the size of the form should automatically change the size of notch and img. The border properties and rotate create the notch illusion*/
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50.4%) rotate(-45deg);
+    background-color: $new-white;
+    /* background-color is needed to hide top border from form behind the img*/
+    border-radius: 50%;
+    width: 30%;
+    aspect-ratio: 1;
+    // height: 25rem;
+    border: 1px solid rgb(36, 35, 35);
+    border-top-color: transparent;
+    border-right-color: transparent;
+    // border-top: none;
+    // border-right: none;
+
+    &::after {
+      /* Img is set as a background-img, percentages used as size to keep img responsive to notch.  Rotated to correct from rotation of parent*/
+      content: "";
+      @include abs-center;
+      // centers the img in notch;
+
+      width: 95%;
+      height: 95%;
+      border-radius: 50%;
+      background-image: url(../img/chris-2.jpeg);
+      background-size: 150%;
+      background-position: center;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+
+  &__group:not(:last-of-type) {
+    /* This selects name and email elements; not message */
     margin-bottom: 1rem;
     position: relative;
   }
 
   &__input {
-    display: block;
-    font-size: 1.4rem;
+    // display: block;
+    font-size: var(--input-size);
     font-family: inherit;
     font-weight: 600;
     color: inherit;
     padding: 1rem 2rem;
     border-radius: 2px;
     background-color: inherit;
-    border: none;
+    border: 1px solid black;
     // border-top: 1px solid rgba(0, 0, 0, 0.2);
     // border-left: 1px solid rgba(0, 0, 0, 0.2);
     // border-right: 1px solid rgba(0, 0, 0, 0.2);
-    @include shadow;
-    border-bottom: 3px solid transparent;
+    // @include shadow;
+    // border-bottom: 3px solid transparent;
     width: 100%;
     transition: all 0.3s;
 
@@ -174,8 +224,9 @@
     // }
 
     &:focus {
+      /* bottom border changes color depending on validity of input */
       outline: none;
-      box-shadow: 0 1rem rem rgba(0, 0, 0, 0.1);
+      // box-shadow: 0 1rem rem rgba(0, 0, 0, 0.1);
       border-bottom: 3px solid green;
 
       &:invalid {
@@ -184,12 +235,12 @@
     }
 
     &::-webkit-input-placeholder {
-      color: rgb(104, 100, 100);
+      color: var(--placeholder-color);
     }
 
     &--msg {
-      padding-bottom: 10rem;
-      font-size: 1.6rem;
+      padding-bottom: var(--msg-pad);
+      font-size: var(--msg-size);
       font-weight: 400;
       // background-color: pink;
       resize: none;
@@ -197,8 +248,9 @@
   }
 
   &__label {
+    /* when placeholder is not shown, label is revealed below the input, giving the illusion the placeholder glided downwards.*/
     display: block;
-    font-size: 1.2rem;
+    font-size: var(--label-size);
     font-weight: 700;
     margin-left: 2rem;
     margin-top: 0.7rem;
@@ -206,115 +258,68 @@
   }
 
   &__input:placeholder-shown + &__label {
+    /* When placeholder is show, label will be hidden behind the placeholder */
     opacity: 0;
     visibility: hidden;
     transform: translateY(-4rem);
   }
 
   &__submit {
-    padding: 0.5rem 2rem;
-    outline: none;
+    padding: 0.75rem 2rem;
+
     border: none;
     border-radius: 5px;
     @include bk-gradient-blue;
     background-size: 200%;
     background-position: 100%;
+
     font-size: 1.4rem;
+    text-transform: uppercase;
     font-weight: 600;
     color: $white;
+
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
-    transition: all 0.1s;
+    bottom: var(--form-padding);
+    transform: translate(-50%, 30%) scale(1);
+    /* will center btn on bottom border of message element */
+    transition: transform 0.1s;
 
     &:hover,
     &:focus {
       outline: none;
-      transform: translateX(-50%) translateY(-1px);
-      box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+      transform: translate(-50%, 30%) scale(1.05);
     }
 
     &:active {
-      transform: translateX(-50%) translateY(1px);
-      box-shadow: none;
+      transform: translate(-50%, 30%) scale(0.95);
     }
   }
 }
 
 .socials {
   display: flex;
+  /* positions all links on right side of card */
   align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 8%;
+  /* gives space between social links and form items */
+  padding: 0 7.5%;
+  /* pushes links to the left */
 
-  h2 {
-    margin-right: auto;
+  a {
+    margin-left: 2%;
   }
   img {
-    width: 3rem;
-    margin-left: 2rem;
-  }
+    width: 4.5rem;
+    transition: all 0.1s;
 
-  p {
-    font-size: 1.4rem;
-    font-weight: 600;
+    &:hover,
+    &:focus {
+      transform: scale(1.05);
+    }
+    &:active {
+      transform: scale(0.95);
+    }
   }
 }
-
-/* Title Page components */
-// .title__container {
-//   display: none;
-//   // display: flex;
-//   align-items: center;
-//   font-family: "PT Serif", serif;
-//   font-size: 4rem;
-//   color: $new-grey;
-//   position: absolute;
-//   top: 0;
-//   left: 50%;
-//   transform: translateX(-50%);
-// }
-
-// .divider {
-//   font-family: serif;
-//   font-size: 5rem;
-//   font-weight: 100;
-//   transform: scale(0);
-//   transform-origin: bottom;
-//   animation: grow 0.2s ease-in 1s forwards;
-// }
-
-// .text-holder--left {
-//   position: relative;
-//   overflow: hidden;
-//   /*   background-color: yellow; */
-//   width: 26.5rem;
-// }
-
-// .text-holder--right {
-//   position: relative;
-//   overflow: hidden;
-//   /*   background-color: teal; */
-//   width: 38rem;
-// }
-
-// .text--left {
-//   font-size: 4rem;
-//   position: relative;
-//   text-align: right;
-//   right: -100%;
-//   animation: slide-left 0.5s cubic-bezier(0.49, 1.34, 0.84, 1.17) 1.3s forwards;
-// }
-// .text--right {
-//   position: relative;
-//   /*   background-color: pink */
-//   left: -100%;
-//   animation: slide-right 0.5s cubic-bezier(0.49, 1.34, 0.84, 1.17) 1.3s forwards;
-// }
-// .video {
-//   width: 40.6rem;
-// }
-
-/*           <img src="../img/cards-white.svg" alt="Playing cards-white" class="project__img shadow-bold">
-          <div class="project__text-container">
-            <h2 class="heading-primary project__heading">burtonPoker</h2>
-            <p class="project__description"></p>
-            <a href="#" class="project__link">learn more</a> */

@@ -171,7 +171,7 @@ body {
     transform: translateX(-50%); }
     .title__scroll img {
       position: relative;
-      width: 7rem;
+      width: 5rem;
       transition: all 0.1s; }
     .title__scroll::after {
       content: "";
@@ -201,8 +201,6 @@ body {
 /* PROJECTS //////////////////////////////////////////////// */
 .projects {
   background-color: #af081b; }
-  .projects > * {
-    max-width: 140rem; }
 
 .project {
   display: flex;
@@ -363,35 +361,44 @@ body {
     justify-content: space-around; }
 
 .contact {
+  /* Contact section will take up 90vh and the form-container will be placed in the center, positioned slightly down on the Y-axis */
   position: relative;
-  display: flex;
-  width: 100%; }
-  .contact__img {
-    flex: 0 0 542px;
-    max-height: 542px; }
+  width: 100%;
+  padding: 1rem;
+  background-image: url(../img/logoFinal.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  overflow: hidden; }
   .contact__form-container {
-    flex: 1;
-    position: relative;
-    padding: 5rem 9rem 4rem 9rem; }
-    .contact__form-container::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-image: url(../img/diamond-transparent.png);
-      background-size: 50%;
-      background-repeat: no-repeat;
-      background-position: 110% 130%; }
+    --heading-size: 2.5rem;
+    --social-size: 1.5rem;
+    --placeholder-color: rgb(104, 100, 100);
+    --label-size: 1.2rem;
+    --input-size: 1.4rem;
+    --msg-size: 1.6rem;
+    --msg-pad: 13rem;
+    color: #0c0c0c;
+    background-color: #f8f8f8;
+    font-family: "Ubuntu", sans-serif;
+    /* these above properties will be used or inherited by the form */
+    width: 80rem;
+    min-width: 50%;
+    max-width: 90%;
+    margin: 10% auto 1rem auto;
+    transform: scale(0);
+    animation: slide-up 1.2s forwards cubic-bezier(0.41, 1.5, 1, 0.95); }
 
-.logo {
-  width: 5rem; }
-  .logo--header {
-    position: fixed;
-    top: 2rem;
-    left: 3rem; }
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0); }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1); } }
 
+/* possibly unused */
 .heading-primary {
   width: max-content;
   line-height: 1;
@@ -402,6 +409,7 @@ body {
   .heading-primary--xl {
     font-size: 4rem; }
 
+/* possibly unused */
 .lazy {
   position: absolute;
   bottom: 20%;
@@ -417,6 +425,7 @@ body {
     width: 20%;
   } */ }
 
+/* possibly unused */
 .scroll-arrow {
   /* NEED TO ADD SHADOW */ }
   .scroll-arrow--big {
@@ -478,104 +487,149 @@ body {
     width: 3rem; }
 
 .form {
+  /* To make this component resusable elsewhere, some property values are defined in parent container, using variables */
+  /* variables needed: --heading-size, --placeholder-color, --label-size, --input-size, --msg-size, --msg-pad */
+  /* font-family & colors inhereted by parent container */
+  /* width defined by parent container; height definined by content */
+  /* Direct children: notch, socials, name, email, email + btn */
   position: relative;
+  --form-padding: 3rem;
+  width: 100%;
+  padding: var(--form-padding);
   border: 1px solid #242323;
   border-radius: 5px;
-  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  height: 100%;
-  font-family: "Ubuntu", sans-serif;
-  padding: 2rem; }
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2); }
   .form > * {
-    position: relative;
-    z-index: 1; }
-  .form h2 {
-    font-weight: 400;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid black;
-    display: inline-block; }
-  .form__group:not(:last-child) {
+    position: relative; }
+  .form__heading, .form__heading-secondary {
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    font-weight: 500;
+    background-color: #f8f8f8;
+    padding: 0 5px; }
+  .form__heading {
+    left: 8%;
+    transform: translateY(-50%);
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: var(--heading-size); }
+  .form__heading-secondary {
+    font-size: var(--social-size);
+    text-transform: lowercase;
+    font-weight: 600;
+    right: 5%; }
+  .form__notch {
+    /* This is the notch the image will be placed in.  It will scale to the size of the form.  The ::after contains the actual img, witch will scale to the curve of the notch.  Changing the size of the form should automatically change the size of notch and img. The border properties and rotate create the notch illusion*/
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50.4%) rotate(-45deg);
+    background-color: #f8f8f8;
+    /* background-color is needed to hide top border from form behind the img*/
+    border-radius: 50%;
+    width: 30%;
+    aspect-ratio: 1;
+    border: 1px solid #242323;
+    border-top-color: transparent;
+    border-right-color: transparent; }
+    .form__notch::after {
+      /* Img is set as a background-img, percentages used as size to keep img responsive to notch.  Rotated to correct from rotation of parent*/
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 95%;
+      height: 95%;
+      border-radius: 50%;
+      background-image: url(../img/chris-2.jpeg);
+      background-size: 150%;
+      background-position: center;
+      transform: translate(-50%, -50%) rotate(45deg); }
+  .form__group:not(:last-of-type) {
+    /* This selects name and email elements; not message */
     margin-bottom: 1rem;
     position: relative; }
   .form__input {
-    display: block;
-    font-size: 1.4rem;
+    font-size: var(--input-size);
     font-family: inherit;
     font-weight: 600;
     color: inherit;
     padding: 1rem 2rem;
     border-radius: 2px;
     background-color: inherit;
-    border: none;
-    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2);
-    border-bottom: 3px solid transparent;
+    border: 1px solid black;
     width: 100%;
     transition: all 0.3s; }
     .form__input:focus {
+      /* bottom border changes color depending on validity of input */
       outline: none;
-      box-shadow: 0 1rem rem rgba(0, 0, 0, 0.1);
       border-bottom: 3px solid green; }
       .form__input:focus:invalid {
         border-bottom: 3px solid #af081b; }
     .form__input::-webkit-input-placeholder {
-      color: #686464; }
+      color: var(--placeholder-color); }
     .form__input--msg {
-      padding-bottom: 10rem;
-      font-size: 1.6rem;
+      padding-bottom: var(--msg-pad);
+      font-size: var(--msg-size);
       font-weight: 400;
       resize: none; }
   .form__label {
+    /* when placeholder is not shown, label is revealed below the input, giving the illusion the placeholder glided downwards.*/
     display: block;
-    font-size: 1.2rem;
+    font-size: var(--label-size);
     font-weight: 700;
     margin-left: 2rem;
     margin-top: 0.7rem;
     transition: all 0.3s; }
   .form__input:placeholder-shown + .form__label {
+    /* When placeholder is show, label will be hidden behind the placeholder */
     opacity: 0;
     visibility: hidden;
     transform: translateY(-4rem); }
   .form__submit {
-    padding: 0.5rem 2rem;
-    outline: none;
+    padding: 0.75rem 2rem;
     border: none;
     border-radius: 5px;
     background-image: linear-gradient(to right, #eee2aa 50%, #0e2439 50%, #081f7d, #0e2439, #081f7d);
     background-size: 200%;
     background-position: 100%;
     font-size: 1.4rem;
+    text-transform: uppercase;
     font-weight: 600;
     color: #f1f0f0;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
-    transition: all 0.1s; }
+    bottom: var(--form-padding);
+    transform: translate(-50%, 30%) scale(1);
+    /* will center btn on bottom border of message element */
+    transition: transform 0.1s; }
     .form__submit:hover, .form__submit:focus {
       outline: none;
-      transform: translateX(-50%) translateY(-1px);
-      box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2); }
+      transform: translate(-50%, 30%) scale(1.05); }
     .form__submit:active {
-      transform: translateX(-50%) translateY(1px);
-      box-shadow: none; }
+      transform: translate(-50%, 30%) scale(0.95); }
 
 .socials {
   display: flex;
-  align-items: center; }
-  .socials h2 {
-    margin-right: auto; }
+  /* positions all links on right side of card */
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 8%;
+  /* gives space between social links and form items */
+  padding: 0 7.5%;
+  /* pushes links to the left */ }
+  .socials a {
+    margin-left: 2%; }
   .socials img {
-    width: 3rem;
-    margin-left: 2rem; }
-  .socials p {
-    font-size: 1.4rem;
-    font-weight: 600; }
+    width: 4.5rem;
+    transition: all 0.1s; }
+    .socials img:hover, .socials img:focus {
+      transform: scale(1.05); }
+    .socials img:active {
+      transform: scale(0.95); }
 
-/* Title Page components */
-/*           <img src="../img/cards-white.svg" alt="Playing cards-white" class="project__img shadow-bold">
-          <div class="project__text-container">
-            <h2 class="heading-primary project__heading">burtonPoker</h2>
-            <p class="project__description"></p>
-            <a href="#" class="project__link">learn more</a> */
 /* 
 #5D040A light red
 #f1f0f0 white for dark red
