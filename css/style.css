@@ -7,6 +7,7 @@ font-family: 'Ubuntu', sans-serif; */
 font-family: 'Merriweather', serif;
 font-family: 'PT Serif', serif;
 font-family: 'Ubuntu', sans-serif; */
+/* Currently in use */
 /* Media Query variables */
 * {
   margin: 0;
@@ -36,19 +37,31 @@ body {
   background-color: #af081b;
   color: #f1f0f0; }
 
-/* ******************************************************* */
 /* MIXINS */
-.shadow-bold {
-  filter: drop-shadow(1px 1px 2px black); }
-
+/* ******************************************************* */
+/* Centers an element in its parent */
+/* Currently used for contact form.  Provides a shadow that lifts div off the page*/
+/* No longer in use, provides white text with a shadow */
+/*No longer in use. Centers an element on the bottom of its parent. */
+/* ******************************************************** */
+/* Creates a background that will change when you transition the background-position value.  Paired with project-bk and bk-gradient-[color] for the complete effect.  Apply the mixins to the class and change the background-position in the :hover state.  */
+/* project-bk should be paired with bk-transition.  Initial background is transparent, transition on hover will be color passed in as an argument. */
+/* bk-gradient-[color] should be paired with bk-transition.  Initial background is beige, transition on hover will be the color chosen. */
+/* ********************************************************* */
+/* Used for title section.  Positions a background-img in bottom left corner of element.  Meant for large sections that fill up the page. */
+/* No longer being used.  positions an background img in the bottom-right corner of an element */
 /* ******************************************************* */
 /* UTILITY CLASSES */
+.cursor {
+  cursor: default; }
+
 .shadow-bold {
   filter: drop-shadow(3px 2px 2px black); }
 
 .gradient--4 {
   background-image: linear-gradient(90deg, #1c1d21ff, #ffbfb7ff, #af081bff, #ffbfb7ff, #1c1d21ff); }
 
+/* Added through JS, Reveals project-fv */
 .active {
   opacity: 1 !important;
   max-height: 70rem !important;
@@ -56,6 +69,7 @@ body {
 
 /* ***************************************** */
 /* ANIMATIONS */
+/* No longer in use.  Consider removing.  Idea for animating title content on page load. */
 @keyframes slide-right {
   0% {
     left: -100%; }
@@ -105,7 +119,7 @@ body {
     .nav__link img, .nav__link:visited img {
       width: 4rem; }
   .nav__link:focus, .nav__link:hover {
-    color: grey; }
+    color: #00a3a3ff; }
   .nav__link:hover:not(:last-child) {
     transform: scale(1.1) translateY(-2px); }
   .nav__link:active:not(:last-child) {
@@ -203,19 +217,23 @@ body {
   background-color: #af081b; }
 
 .project {
+  /* Change background color by using project-bk mixin, passing color as arg */
+  /* heading, description, link */
+  /*   --heading-fs: 1rem;
+  --description-fs: 1rem;
+  --link-fs: 1rem; */
   display: flex;
   flex-direction: row;
   align-items: center;
   position: relative;
-  height: 30rem;
-  padding: 0 4rem;
-  background-image: linear-gradient(to right, transparent 50%, #547aa5 50%);
-  background-image: linear-gradient(to right, transparent 50%, #797b82 50%);
+  padding: 5rem 4rem;
   background-image: linear-gradient(to right, transparent 50%, #f1f0f0 50%);
   background-size: 200%;
   background-position: 0%;
   transition: background-position 0.3s;
-  /* swaps all bk colors once project is hovered */ }
+  /* swaps all bk colors once project is hovered */
+  /* ******************************* */
+  /* *************************************** */ }
   .project:hover,
   .project:hover .project__img,
   .project:hover .project__text-container > * {
@@ -237,23 +255,23 @@ body {
     .project__img--poker {
       mask-image: url(../img/cards-white.svg);
       -webkit-mask-image: url(../img/cards-white.svg); }
-    .project__img--zelda {
+    .project__img--portfolio {
+      background-image: linear-gradient(to right, #eee2aa 50%, #dc93b8ff 50%, #c34685ff, #dc93b8ff, #c34685ff);
+      mask-image: url(../img/sass.svg);
+      -webkit-mask-image: url(../img/sass.svg); }
+    .project__img--node-js {
       background-image: linear-gradient(to right, #eee2aa 50%, #0c4613 50%, #188c25, #0c4613, #188c25);
-      mask-image: url(../img/zelda.svg);
-      -webkit-mask-image: url(../img/zelda.svg); }
-    .project__img--react {
-      background-image: linear-gradient(to right, #eee2aa 50%, #403b4a 50%, #e7e9bb, #403b4a, #e7e9bb);
-      mask-image: url(../img/club.svg);
-      -webkit-mask-image: url(../img/club.svg); }
+      mask-image: url(../img/node-js.svg);
+      -webkit-mask-image: url(../img/node-js.svg); }
     .project__img:hover {
       transform: translateY(-4px);
       background-position: 0% !important; }
   .project__text-container {
     flex: 0 1 60%;
     order: 2;
-    min-height: 70%;
     margin-right: 7rem; }
     .project__text-container > *:not(:last-child) {
+      /* Text is used as a mask, background provides color.  Mixins set up background properties.  Transition on hover is handled above by hovering parent div. */
       color: transparent;
       background-image: linear-gradient(to right, #eee2aa 50%, #0e2439 50%, #081f7d, #0e2439, #081f7d);
       background-size: 200%;
@@ -266,6 +284,7 @@ body {
   .project--reverse:hover {
     background-position: -100%; }
   .project--reverse .project__img {
+    /* any project with --reverse modifier will reverse the order of img and text content */
     order: 3;
     margin-right: 0;
     margin-left: auto; }
@@ -273,7 +292,10 @@ body {
     margin-right: 0; }
   .project__heading {
     margin-bottom: 2.5rem;
-    cursor: default; }
+    cursor: default;
+    width: max-content;
+    line-height: 1;
+    font-size: 3rem; }
   .project__description {
     margin-bottom: 4rem;
     letter-spacing: 1px;
@@ -283,7 +305,7 @@ body {
     position: absolute;
     bottom: 3rem;
     left: 50%;
-    transform: translateX(-49.9%);
+    transform: translate(-49.9%, 0) scale(1);
     padding: 0.2rem 2rem;
     color: #af081b;
     font-size: 2rem;
@@ -291,9 +313,10 @@ body {
     text-decoration: none;
     background-image: linear-gradient(to right, #eee2aa 50%, #0e2439 50%, #081f7d, #0e2439, #081f7d);
     background-size: 201%;
-    border-radius: 10px; }
-    .project__link:hover, .project__link:focus, .project__link:active {
-      color: #4ac9c9 !important; }
+    border-radius: 10px;
+    transition: all 0.1s; }
+    .project__link:hover, .project__link:focus {
+      color: #eee2aa !important; }
 
 /* FULL VIEW /////////////////////////////////////// */
 .project-fv {
@@ -399,17 +422,6 @@ body {
     transform: scale(1); } }
 
 /* possibly unused */
-.heading-primary {
-  width: max-content;
-  line-height: 1;
-  font-family: "Ubuntu", sans-serif;
-  font-size: 3rem; }
-  .heading-primary--huge {
-    font-size: 4.75rem; }
-  .heading-primary--xl {
-    font-size: 4rem; }
-
-/* possibly unused */
 .lazy {
   position: absolute;
   bottom: 20%;
@@ -477,6 +489,7 @@ body {
     .project-link__img:active {
       transform: translateY(2px); }
   .project-link__text {
+    font-size: 2rem;
     margin-left: 1rem; }
 
 .collapse {

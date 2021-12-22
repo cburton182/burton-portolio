@@ -44,7 +44,7 @@
 
   &__link:focus,
   &__link:hover {
-    color: grey;
+    color: $teal;
   }
   &__link:hover:not(:last-child) {
     transform: scale(1.1) translateY(-2px);
@@ -170,30 +170,26 @@
 /* PROJECTS //////////////////////////////////////////////// */
 
 .projects {
-  //display
-  //position
-  //box-sizing
-  //   padding: 4rem;
-  //font properties
-  //bckgrnd
   background-color: $color-primary;
-  // background-color: rgb(240, 10, 10);
 }
 
 .project {
+  /* Change background color by using project-bk mixin, passing color as arg */
   //display
+  /* heading, description, link */
+  /*   --heading-fs: 1rem;
+  --description-fs: 1rem;
+  --link-fs: 1rem; */
+
   display: flex;
   flex-direction: row;
   align-items: center;
   //position
   position: relative;
   //box-sizing
-  height: 30rem;
-  padding: 0 4rem;
+  padding: 5rem 4rem;
   //font properties
   //miscl
-  @include project-bk($powder-blue);
-  @include project-bk(#797b82);
   @include project-bk($white);
   // //transitions
   @include bk-transition(0.3s);
@@ -231,17 +227,17 @@
       -webkit-mask-image: url(../img/cards-white.svg);
     }
 
-    &--zelda {
-      @include bk-gradient-green;
+    &--portfolio {
+      @include bk-gradient-pink;
 
-      mask-image: url(../img/zelda.svg);
-      -webkit-mask-image: url(../img/zelda.svg);
+      mask-image: url(../img/sass.svg);
+      -webkit-mask-image: url(../img/sass.svg);
     }
 
-    &--react {
-      @include bk-gradient-grey;
-      mask-image: url(../img/club.svg);
-      -webkit-mask-image: url(../img/club.svg);
+    &--node-js {
+      @include bk-gradient-green;
+      mask-image: url(../img/node-js.svg);
+      -webkit-mask-image: url(../img/node-js.svg);
     }
     //transitions
     @include bk-transition;
@@ -258,7 +254,7 @@
     order: 2;
     //position
     //box-sizing
-    min-height: 70%;
+    // min-height: 70%;
     margin-right: 7rem;
     //font properties
     // color: $beige;
@@ -266,9 +262,8 @@
     //transitions
 
     & > *:not(:last-child) {
+      /* Text is used as a mask, background provides color.  Mixins set up background properties.  Transition on hover is handled above by hovering parent div. */
       color: transparent;
-      // @include white-txt-shadow;
-      //miscl
       @include bk-gradient-blue;
       @include bk-transition;
       background-clip: text;
@@ -279,11 +274,10 @@
   &:not(:first-child) {
     border-top: 1px solid $color-tertiary;
   }
-  &:last-child {
-    // @include project-bk(#797b82);
-  }
+
+  /* ******************************* */
   &--reverse {
-    // @include project-bk($tea-green);
+    // any project with the --reverse modifier will transition background in opposite direction;
 
     &:hover {
       background-position: -100%;
@@ -291,6 +285,7 @@
   }
 
   &--reverse &__img {
+    /* any project with --reverse modifier will reverse the order of img and text content */
     order: 3;
     margin-right: 0;
     margin-left: auto;
@@ -299,9 +294,14 @@
   &--reverse &__text-container {
     margin-right: 0;
   }
+  /* *************************************** */
+
   &__heading {
     margin-bottom: $mg-btm-m;
     cursor: default;
+    width: max-content;
+    line-height: 1;
+    font-size: $fs-l;
   }
 
   &__description {
@@ -318,7 +318,7 @@
     position: absolute;
     bottom: 3rem;
     left: 50%;
-    transform: translateX(-49.9%);
+    transform: translate(-49.9%, 0) scale(1);
     //box-sizing
     padding: 0.2rem 2rem;
     //font properties
@@ -332,11 +332,12 @@
     background-size: 201%;
     border-radius: 10px;
     //transitions
+    transition: all 0.1s;
 
     &:hover,
-    &:focus,
-    &:active {
-      color: rgb(74, 201, 201) !important;
+    &:focus {
+      // color: rgb(74, 201, 201) !important;
+      color: $beige !important;
     }
   }
 }
@@ -504,7 +505,7 @@
     color: $black;
     background-color: $new-white;
 
-    font-family: "Ubuntu", sans-serif;
+    font-family: $ff-main;
     /* these above properties will be used or inherited by the form */
     width: 80rem;
     min-width: 50%;
@@ -513,7 +514,7 @@
     // form width will respond to any changes in width made here.
 
     transform: scale(0);
-    animation: slide-up 1.2s forwards cubic-bezier(.41,1.5,1,.95);
+    animation: slide-up 1.2s forwards cubic-bezier(0.41, 1.5, 1, 0.95);
   }
 }
 // background-color: #c1bfbf;

@@ -1,19 +1,4 @@
 /* possibly unused */
-.heading-primary {
-  width: max-content;
-  line-height: 1;
-  font-family: $ff-headings;
-  font-size: $fs-l;
-
-  &--huge {
-    font-size: $fs-huge;
-  }
-
-  &--xl {
-    font-size: $fs-xl;
-  }
-}
-/* possibly unused */
 .lazy {
   position: absolute;
   bottom: 20%;
@@ -102,6 +87,7 @@
     }
   }
   &__text {
+    font-size: $fs-m;
     margin-left: 1rem;
   }
 }

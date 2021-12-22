@@ -1,38 +1,32 @@
-/* ******************************************************* */
 /* MIXINS */
 
+/* ******************************************************* */
+/* Centers an element in its parent */
 @mixin abs-center {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-.shadow-bold {
-  //   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 1));
-}
-
+/* Currently used for contact form.  Provides a shadow that lifts div off the page*/
 @mixin shadow {
   box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2);
 }
-
+/* No longer in use, provides white text with a shadow */
 @mixin white-txt-shadow {
   color: $white;
   text-shadow: 3px 2px 5px rgba(0, 0, 0, 0.5);
 }
-
+/*No longer in use. Centers an element on the bottom of its parent. */
 @mixin abs-center-btm {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
 }
+/* ******************************************************** */
 
-@mixin project-bk($color) {
-  background-image: linear-gradient(to right, transparent 50%, $color 50%);
-}
-
+/* Creates a background that will change when you transition the background-position value.  Paired with project-bk and bk-gradient-[color] for the complete effect.  Apply the mixins to the class and change the background-position in the :hover state.  */
 @mixin bk-transition($length: 0s) {
   background-size: 200%;
 
@@ -41,6 +35,12 @@
   transition: background-position $length;
 }
 
+/* project-bk should be paired with bk-transition.  Initial background is transparent, transition on hover will be color passed in as an argument. */
+@mixin project-bk($color) {
+  background-image: linear-gradient(to right, transparent 50%, $color 50%);
+}
+
+/* bk-gradient-[color] should be paired with bk-transition.  Initial background is beige, transition on hover will be the color chosen. */
 @mixin bk-gradient-blue {
   background-image: linear-gradient(
     to right,
@@ -74,6 +74,18 @@
   );
 }
 
+@mixin bk-gradient-pink {
+  background-image: linear-gradient(
+    to right,
+    $beige 50%,
+    $pink 50%,
+    $dark-pink,
+    $pink,
+    $dark-pink
+  );
+}
+/* ********************************************************* */
+/* Used for title section.  Positions a background-img in bottom left corner of element.  Meant for large sections that fill up the page. */
 @mixin hero-bk($img) {
   position: relative;
   width: 100%;
@@ -86,6 +98,7 @@
   background-repeat: no-repeat;
 }
 
+/* No longer being used.  positions an background img in the bottom-right corner of an element */
 @mixin contact-bk {
   content: "";
   position: absolute;
@@ -101,7 +114,12 @@
   // opacity: 50%;
 }
 /* ******************************************************* */
+
 /* UTILITY CLASSES */
+
+.cursor {
+  cursor: default;
+}
 .shadow-bold {
   //   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   filter: drop-shadow(3px 2px 2px rgba(0, 0, 0, 1));
@@ -120,6 +138,7 @@
   );
 }
 
+/* Added through JS, Reveals project-fv */
 .active {
   opacity: 1 !important;
   max-height: 70rem !important;
@@ -130,7 +149,7 @@
 
 /* ***************************************** */
 /* ANIMATIONS */
-
+/* No longer in use.  Consider removing.  Idea for animating title content on page load. */
 @keyframes slide-right {
   0% {
     left: -100%;

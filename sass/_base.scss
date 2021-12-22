@@ -20,11 +20,20 @@ $new-grey: #333;
 $new-black: #232323;
 
 $black: #0c0c0c;
-$white: #f1f0f0;
 // $white: #f1ebeb;
+
+/* Currently in use */
+$white: #f1f0f0;
 $red: #af081b;
+$color-primary: $red;
 $dark-blue: #0e2439;
 $blue: #081f7d;
+$pink: #dc93b8ff;
+$dark-pink: #c34685ff;
+$teal: #00a3a3ff;
+
+$wild-orchid: #ce679aff;
+
 $light-blue: #0b2bad;
 $powder-blue: #547aa5;
 
@@ -34,7 +43,6 @@ $green: #188c25;
 $dark-green: #0c4613;
 
 $beige: #eee2aa;
-$color-primary: $red;
 $color-secondary: #fbf7f7;
 $color-tertiary: $black;
 $dark-text: $black;
