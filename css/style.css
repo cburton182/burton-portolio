@@ -67,6 +67,11 @@ body {
   max-height: 70rem !important;
   visibility: visible !important; }
 
+/* This class is added through JS, that way if JS is blocked in the browser, the section will still be visible */
+.hidden {
+  opacity: 0;
+  transform: translateY(8rem); }
+
 /* ***************************************** */
 /* ANIMATIONS */
 /* No longer in use.  Consider removing.  Idea for animating title content on page load. */
@@ -388,7 +393,7 @@ body {
   position: relative;
   width: 100%;
   padding: 1rem;
-  background-image: url(../img/logoFinal.png);
+  background-image: url(../img/logoFinal-large.png);
   background-size: 100%;
   background-repeat: no-repeat;
   overflow: hidden; }
@@ -408,9 +413,11 @@ body {
     min-width: 50%;
     max-width: 90%;
     margin: 10% auto 1rem auto;
-    transform: scale(0);
-    animation: slide-up 1.2s forwards cubic-bezier(0.41, 1.5, 1, 0.95); }
+    transition: all 0.8s cubic-bezier(0.5, 1.62, 0.98, 1.1);
+    /* transition applies when hidden class is removed, translating up and changing opacity,
+    this is done in JS */ }
 
+/* Used to test a transition, delete after implementing transistion */
 @keyframes slide-up {
   0% {
     opacity: 0;

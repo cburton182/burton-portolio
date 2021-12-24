@@ -146,6 +146,11 @@
   visibility: visible !important;
   // display: block !important;
 }
+/* This class is added through JS, that way if JS is blocked in the browser, the section will still be visible */
+.hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
 
 /* ***************************************** */
 /* ANIMATIONS */
