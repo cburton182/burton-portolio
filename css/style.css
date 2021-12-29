@@ -8,6 +8,9 @@ font-family: 'Merriweather', serif;
 font-family: 'PT Serif', serif;
 font-family: 'Ubuntu', sans-serif; */
 /* Currently in use */
+/* end of in use */
+/* Not in use */
+/* Not in use */
 /* Media Query variables */
 * {
   margin: 0;
@@ -119,7 +122,7 @@ body {
   font-family: "Merriweather", serif;
   width: 100%; }
   .nav .logo {
-    width: 150px;
+    width: 15rem;
     margin-left: 7%; }
   .nav__links {
     display: flex; }
@@ -144,13 +147,10 @@ body {
 .title {
   position: relative;
   width: 100%;
-  height: 95vh;
+  height: 97vh;
   padding: 0 3rem;
-  background-image: url(../img/spade-transparent.png);
-  background-size: 45%;
-  background-position: -10rem 15rem;
-  /* original 87% 90% size 35% */
-  background-repeat: no-repeat; }
+  background-image: "none";
+  /* original 87% 90% size 35% */ }
   .title__pic {
     width: 20rem;
     border-radius: 50%;
@@ -164,8 +164,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 9rem;
-    height: 70%; }
+    width: 6rem;
+    height: 60%; }
   .title__content {
     position: absolute;
     top: 20%;
@@ -234,11 +234,16 @@ body {
   /*   --heading-fs: 1rem;
   --description-fs: 1rem;
   --link-fs: 1rem; */
+  --heading-fs: 3rem;
+  --description-fs: 2rem;
+  --link-fs: 2rem;
+  --img-size: 20rem;
+  height: 324px;
+  padding: 5rem 4rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   position: relative;
-  padding: 5rem 4rem;
   background-image: linear-gradient(to right, transparent 50%, #f1f0f0 50%);
   background-size: 200%;
   background-position: 0%;
@@ -246,6 +251,24 @@ body {
   /* swaps all bk colors once project is hovered */
   /* ******************************* */
   /* *************************************** */ }
+  @media only screen and (max-width: 75em) {
+    .project {
+      --description-fs: 1.8rem;
+      --link-fs: 1.8rem;
+      height: 312px; } }
+  @media only screen and (max-width: 57.75em) {
+    .project {
+      --heading-fs: 2.5rem;
+      --description-fs: 1.6rem;
+      --img-size: 15rem;
+      --link-fs: 1.6rem;
+      padding: 3rem 3rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .project {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: fit-content; } }
   .project:hover,
   .project:hover .project__img,
   .project:hover .project__text-container > * {
@@ -254,8 +277,8 @@ body {
     color: #f1f0f0; }
   .project__img {
     order: 1;
-    height: 20rem;
-    width: 20rem;
+    height: var(--img-size);
+    width: var(--img-size);
     margin-right: auto;
     background-image: linear-gradient(to right, #eee2aa 50%, #0e2439 50%, #081f7d, #0e2439, #081f7d);
     mask-size: cover;
@@ -264,6 +287,10 @@ body {
     background-position: 0%;
     transition: background-position 0s;
     transition: transform 0.1s; }
+    @media only screen and (max-width: 37.5em) {
+      .project__img {
+        margin-right: 0;
+        margin-bottom: 2.5rem; } }
     .project__img--poker {
       mask-image: url(../img/cards-white.svg);
       -webkit-mask-image: url(../img/cards-white.svg); }
@@ -282,6 +309,10 @@ body {
     flex: 0 1 60%;
     order: 2;
     margin-right: 7rem; }
+    @media only screen and (max-width: 57.75em) {
+      .project__text-container {
+        flex: 0 1 67%;
+        margin-right: 0; } }
     .project__text-container > *:not(:last-child) {
       /* Text is used as a mask, background provides color.  Mixins set up background properties.  Transition on hover is handled above by hovering parent div. */
       color: transparent;
@@ -300,19 +331,29 @@ body {
     order: 3;
     margin-right: 0;
     margin-left: auto; }
+    @media only screen and (max-width: 37.5em) {
+      .project--reverse .project__img {
+        order: 1;
+        margin-left: 0; } }
   .project--reverse .project__text-container {
     margin-right: 0; }
   .project__heading {
     margin-bottom: 2.5rem;
     cursor: default;
-    width: max-content;
     line-height: 1;
-    font-size: 3rem; }
+    font-size: var(--heading-fs); }
+    @media only screen and (max-width: 37.5em) {
+      .project__heading {
+        text-align: center; } }
   .project__description {
     margin-bottom: 4rem;
     letter-spacing: 1px;
     font-size: 2rem;
+    font-size: var(--description-fs);
     cursor: default; }
+    @media only screen and (max-width: 37.5em) {
+      .project__description {
+        margin-bottom: 6rem; } }
   .project__link {
     position: absolute;
     bottom: 3rem;
@@ -320,7 +361,7 @@ body {
     transform: translate(-49.9%, 0) scale(1);
     padding: 0.2rem 2rem;
     color: #af081b;
-    font-size: 2rem;
+    font-size: var(--link-fs);
     font-weight: 500;
     text-decoration: none;
     background-image: linear-gradient(to right, #eee2aa 50%, #0e2439 50%, #081f7d, #0e2439, #081f7d);
@@ -434,10 +475,10 @@ body {
     background-color: #f8f8f8;
     font-family: "Ubuntu", sans-serif;
     /* these above properties will be used or inherited by the form */
-    width: 80rem;
+    width: 800px;
     min-width: 50%;
     max-width: 90%;
-    margin: 10% auto 1rem auto;
+    margin: 17.5rem auto 1rem auto;
     transition: all 0.8s cubic-bezier(0.5, 1.62, 0.98, 1.1);
     /* transition applies when hidden class is removed, translating up and changing opacity,
     this is done in JS */ }

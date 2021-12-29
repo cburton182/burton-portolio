@@ -15,34 +15,35 @@ font-family: 'Ubuntu', sans-serif; */
 
 //COLORS
 //#030303
-$new-white: #f8f8f8;
-$new-grey: #333;
-$new-black: #232323;
 
-$black: #0c0c0c;
 // $white: #f1ebeb;
 
 /* Currently in use */
+$black: #0c0c0c;
+$new-white: #f8f8f8;
 $white: #f1f0f0;
 $red: #af081b;
 $color-primary: $red;
-$dark-blue: #0e2439;
 $blue: #081f7d;
+$dark-blue: #0e2439;
 $pink: #dc93b8ff;
 $dark-pink: #c34685ff;
-$teal: #00a3a3ff;
-
-$wild-orchid: #ce679aff;
-
-$light-blue: #0b2bad;
-$powder-blue: #547aa5;
-
-$tea-green: #c5e6a6;
-// $green: #51e161;
 $green: #188c25;
 $dark-green: #0c4613;
-
+$teal: #00a3a3ff;
 $beige: #eee2aa;
+/* end of in use */
+
+/* Not in use */
+$wild-orchid: #ce679aff;
+$light-blue: #0b2bad;
+$powder-blue: #547aa5;
+$tea-green: #c5e6a6;
+// $green: #51e161;
+$new-grey: #333;
+$new-black: #232323;
+/* Not in use */
+
 $color-secondary: #fbf7f7;
 $color-tertiary: $black;
 $dark-text: $black;
@@ -51,9 +52,9 @@ $light-text: $white;
 
 //GRADIENTS
 $gradient-red: linear-gradient(to right, #3a1111, #d62121, #3a1111);
-
 $gradient-btn-hov: linear-gradient(to right, #3ec7e0, #526bf4);
 $gradient-btn: linear-gradient(to right, #e052a0, #f15c41);
+
 //FONT
 $fs-huge: 4.75rem;
 $fs-xl: 4rem;
@@ -76,7 +77,7 @@ $fw-xlight: 200;
 //px / 16 = em;
 $bp-largest: 75em; //1200px
 $bp-large: 68.75em; //1100px
-$bp-medium: 56.25em; //900px
+$bp-medium: 57.75em; //925px
 $bp-small: 37.5em; //600px
 $bp-smallest: 31.25em; //500px
 
@@ -84,6 +85,7 @@ $bp-smallest: 31.25em; //500px
 $mg-btm-sm: 1.5rem;
 $mg-btm-m: 2.5rem;
 $mg-btm-l: 4rem;
+$mg-btm-xl: 6rem;
 
 * {
   margin: 0;
@@ -108,9 +110,9 @@ html {
   font-size: 62.5%; // 1 rem == 10px;
   scroll-behavior: smooth;
 
-  //   @media only screen and (max-width: $bp-large) {
-  //     font-size: 50%;
-  //   }
+  // @media only screen and (max-width: $bp-large) {
+  //   font-size: 50%;
+  // }
 }
 
 body {

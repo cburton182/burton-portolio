@@ -22,7 +22,7 @@
   // background-color: transparent;
 
   .logo {
-    width: 150px;
+    width: 15rem;
     margin-left: 7%;
     // margin-bottom: -30px;
   }
@@ -61,7 +61,7 @@
 }
 
 .title {
-  @include hero-bk(url(../img/spade-transparent.png));
+  @include hero-bk;
 
   &__pic {
     width: 20rem;
@@ -80,8 +80,8 @@
     flex-direction: column;
     justify-content: space-between;
 
-    width: 9rem;
-    height: 70%;
+    width: 6rem;
+    height: 60%;
   }
 
   &__content {
@@ -180,6 +180,26 @@
   /*   --heading-fs: 1rem;
   --description-fs: 1rem;
   --link-fs: 1rem; */
+  --heading-fs: 3rem;
+  --description-fs: 2rem;
+  --link-fs: 2rem;
+  --img-size: 20rem;
+  height: 324px;
+  padding: 5rem 4rem;
+
+  @media only screen and (max-width: $bp-largest) {
+    --description-fs: 1.8rem;
+    --link-fs: 1.8rem;
+    height: 312px;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    --heading-fs: 2.5rem;
+    --description-fs: 1.6rem;
+    --img-size: 15rem;
+    --link-fs: 1.6rem;
+    padding: 3rem 3rem;
+  }
 
   display: flex;
   flex-direction: row;
@@ -187,7 +207,13 @@
   //position
   position: relative;
   //box-sizing
-  padding: 5rem 4rem;
+
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+  }
   //font properties
   //miscl
   @include project-bk($white);
@@ -209,9 +235,14 @@
     order: 1;
     //position
     //box-sizing
-    height: 20rem;
-    width: 20rem;
+    height: var(--img-size);
+    width: var(--img-size);
     margin-right: auto;
+
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 0;
+      margin-bottom: $mg-btm-m;
+    }
     //font properties
     //miscl
     @include bk-gradient-blue;
@@ -246,11 +277,17 @@
   &__text-container {
     //display
     flex: 0 1 60%;
+
     order: 2;
     //position
     //box-sizing
     // min-height: 70%;
     margin-right: 7rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      flex: 0 1 67%;
+      margin-right: 0;
+    }
     //font properties
     // color: $beige;
     //miscl
@@ -284,6 +321,11 @@
     order: 3;
     margin-right: 0;
     margin-left: auto;
+
+    @media only screen and (max-width: $bp-small) {
+      order: 1;
+      margin-left: 0;
+    }
   }
 
   &--reverse &__text-container {
@@ -294,16 +336,26 @@
   &__heading {
     margin-bottom: $mg-btm-m;
     cursor: default;
-    width: max-content;
+    // width: max-content;
     line-height: 1;
-    font-size: $fs-l;
+    // font-size: $fs-l;
+    font-size: var(--heading-fs);
+
+    @media only screen and (max-width: $bp-small) {
+      text-align: center;
+    }
   }
 
   &__description {
     margin-bottom: $mg-btm-l;
+
+    @media only screen and (max-width: $bp-small) {
+      margin-bottom: $mg-btm-xl;
+    }
     //font properties
     letter-spacing: 1px;
     font-size: $fs-m;
+    font-size: var(--description-fs);
     cursor: default;
   }
 
@@ -318,7 +370,8 @@
     padding: 0.2rem 2rem;
     //font properties
     color: $color-primary;
-    font-size: $fs-m;
+    // font-size: $fs-m;
+    font-size: var(--link-fs);
     font-weight: $fw-semi-bold;
     text-decoration: none;
 
@@ -517,15 +570,23 @@
     --input-size: 1.4rem;
     --msg-size: 1.6rem;
     --msg-pad: 13rem;
+
+    // --heading-size: 25px;
+    // --social-size: 15px;
+    // --placeholder-color: rgb(104, 100, 100);
+    // --label-size: 12px;
+    // --input-size: 14px;
+    // --msg-size: 16px;
+    // --msg-pad: 130px;
     color: $black;
     background-color: $new-white;
 
     font-family: $ff-main;
     /* these above properties will be used or inherited by the form */
-    width: 80rem;
+    width: 800px;
     min-width: 50%;
     max-width: 90%;
-    margin: 10% auto 1rem auto;
+    margin: 17.5rem auto 1rem auto;
     // form width will respond to any changes in width made here.
 
     transition: all 0.8s cubic-bezier(0.5, 1.62, 0.98, 1.1);

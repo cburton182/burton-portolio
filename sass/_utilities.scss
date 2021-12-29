@@ -91,16 +91,16 @@ $gradient-pink: linear-gradient(to right, $pink, $dark-pink, $pink, $dark-pink);
 
 /* ********************************************************* */
 /* Used for title section.  Positions a background-img in bottom left corner of element.  Meant for large sections that fill up the page. */
-@mixin hero-bk($img) {
+@mixin hero-bk($img: "none") {
   position: relative;
   width: 100%;
-  height: 95vh;
+  height: 97vh;
   padding: 0 3rem;
   background-image: $img;
-  background-size: 45%;
-  background-position: -10rem 15rem;
+  // background-size: 45%;
+  // background-position: -10rem 15rem;
   /* original 87% 90% size 35% */
-  background-repeat: no-repeat;
+  // background-repeat: no-repeat;
 }
 
 /* No longer being used.  positions an background img in the bottom-right corner of an element */
