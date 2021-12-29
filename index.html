@@ -16,7 +16,7 @@
       <img src="img/logoFinal.png" alt="Logo" class="logo">
       <div class="nav__links">
         <a href="https://www.linkedin.com/in/christopher-burton-13a002226/" target="_blank" class="nav__link"><img src="img/linkedin.svg" alt="Linkedin link"></a>
-        <a href="#" class="nav__link"><img src="img/github.svg" alt="GitHub link"></a>
+        <a href="https://github.com/cburton182" target="_blank" class="nav__link"><img src="img/github.svg" alt="GitHub link"></a>
         <a href="#contact" class="nav__link">contact me</a>
       </div>
     </nav>
@@ -64,6 +64,8 @@
       
       <section class="projects">
 
+        <!-- PROJECT 1 ///////////////////////////////////////////// -->
+
         <div class="project" id="burton-poker">      
           <a href="#burton-poker-main" class="project__img project__img--poker" data-target="burton-poker-main"></a>
           <div class="project__text-container">
@@ -81,7 +83,7 @@
             <div class="project-fv__title">
               <figure class="figure">
                 <video src="img/burton-poker-demo-3.mp4" class="video" autoplay muted loop></video>
-                <fig-caption><span class="skew-bkg">burtonPoker</span.skew-b></fig-caption>
+                <fig-caption><span class="skew-bkg">burtonPoker</span></fig-caption>
               </figure>
               <p>
                 Written in Vanilla Javascript, this code features ES6 classes,  data structures , DOM manupulation, promises, error handling and more.  A fully functional heads-up poker game against an intelligent AI.  Check out the GitHub readme to learn more.
@@ -94,15 +96,15 @@
                 <ul class="list">
                   <li>
                     <span class="list-heading">Hand Ranges</span>
-                    <p>Villain uses modern poker theory to balance bluffs, value bets, calls and folds through hand ranges.</p>
+                    <p>Balanced AI decision making using GTO hand ranges.</p>
                   </li>
                   <li>
                     <span class="list-heading">minimum defence frequency</span>
-                    <p>villain adjusts strategy based on pot odds, making it hard to exploit with unusual bet sizes.</p>
+                    <p>MDF calculations make the AI hard to exploit.</p>
                   </li>
                   <li>
                     <span class="list-heading">Randomizer</span>
-                    <p>villain mixes in low frequency plays to keep you guessing.  Slow played nutted hands, crazy river bluffs.</p>
+                    <p>AI mixes in low frequency plays to keep you guessing.  Slow played nutted hands, crazy river bluffs.</p>
                   </li>
                   <li>
                     <span class="list-heading">Varied raise sizes</span>
@@ -117,11 +119,11 @@
                 <ul class="list">
                 <li>
                   <span class="list-heading">Lookup Tables</span>
-                  <p>AI decision tree utilizes lookup tables via Maps, allowing the computer to make optimal decisions, considering numerous variables.</p>
+                  <p>AI decision tree utilizes lookup tables via JS Maps.</p>
                 </li>
                 <li>
                   <span class="list-heading">Array methods</span>
-                  <p>Arrays are sorted and looped over, scanning for hand strength and possible draws.  See my straight draw evaluator in the moduleName.js module.</p>
+                  <p>Arrays are sorted and looped over, scanning for hand strength and possible draws.</p>
                 </li>
                 <li>
                   <span class="list-heading">Error Handling</span>
@@ -129,7 +131,7 @@
                 </li>
                 <li>
                   <span class="list-heading">MVC structured OOP</span>
-                  <p>Data modules run separately from view modules.  ES6 classes used in an OOP format.</p>
+                  <p>State and View modules operate independently.  ES6 classes used in an OOP format.</p>
                 </li>
               </ul>
               </div>
@@ -141,10 +143,10 @@
                   <a href="https://burtonpoker.netlify.app/" target="_blank" class="project-link__text">Play the game</a>
                 </div>
                 <div class="project-link">
-                  <a href="#" target="_blank">
+                  <a href="https://github.com/cburton182/burton-poker" target="_blank">
                     <img src="img/github.svg" alt="burton Poker" class="project-link__img">
                   </a>
-                  <a href="#" target="_blank" class="project-link__text">See the code</a>
+                  <a href="https://github.com/cburton182/burton-poker" target="_blank" class="project-link__text">See the code</a>
                 </div> <!--end project-link-->
               </div> <!--end __links-->
             </div> <!-- end __content-->
@@ -160,16 +162,72 @@
 
         <!-- PROJECT 2 //////////////////////////////////////////////-->
 
-        <div class="project project--reverse">
-          <a href="#" class="project__img project__img--portfolio"></a>
+        <div class="project project--reverse" id="portfolio">
+          <a href="#portfolio-main" class="project__img project__img--portfolio" data-target="portfolio-main"></a>
           <div class="project__text-container">
             <h2 class="project__heading">Portfolio</h2>
             <p class="project__description">
               After building and scrapping multiple versions of this portfolio, I studied more into CSS, picking up Sass along the way.  I built this portfolio, not only to show off the personal projects I'm proud of, but to demonstrate my newly upgraded knowledge of CSS.
             </p>
-            <a href="#" class="project__link">learn more</a>
+            <a href="#portfolio-main" class="project__link" data-target="portfolio-main">learn more</a>
         </div>
         </div>
+
+        <div class="project-fv" id="portfolio-main">
+          <!-- fv means 'full-view' -->
+          <div class="project-fv__container">
+            <div class="project-fv__title">
+              <figure class="figure">
+                <div class="mask mask--sass"></div>
+                <fig-caption><span class="skew-bkg">Portfolio</span></fig-caption>
+              </figure>
+              <p>
+                The project README contains an in depth description of how this portfolio was built.  
+              </p>
+            </div>
+            <div class="project-fv__content">
+              <div class="content-left full-flex">
+                <ul class="list">
+                  <li>
+                    <span class="list-heading">BEM methodology</span>
+                    <p class="center-text">for a structured stylesheet.</p>
+                  </li>
+                  <li>
+                    <span class="list-heading">Sass Mixins</span>
+                    <p class="center-text">for easily reusable code.</p>
+                  </li>
+                  <li>
+                    <span class="list-heading">Flexbox</span>
+                    <p class="center-text">for a fluid layout.</p>
+                  </li>
+                  <li>
+                    <span class="list-heading">IntersectionObserver API</span>
+                    <p class="center-text">to reveal the contact form on scroll.</p>
+                  </li>
+                  <li>
+                    <span class="list-heading">Media Queries</span>
+                    <p class="center-text">for a responsive design.</p>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="project-fv__links">
+                <div class="project-link project-link--move-left">
+                  <a href="https://github.com/cburton182/burton-poker" target="_blank">
+                    <img src="img/github.svg" alt="burton Poker" class="project-link__img">
+                  </a>
+                  <a href="https://github.com/cburton182/burton-poker" target="_blank" class="project-link__text">See the code</a>
+                </div> <!--end project-link-->
+              </div> <!--end __links-->
+            </div> <!-- end __content-->
+            <a href="#portfolio" class="collapse" data-target="portfolio-main">
+              <img src="img/double-up.svg" alt="up" class="collapse__img" data-target="portfolio-main">
+            </a>
+          </div> <!-- end __container-->
+
+          <div class="project-fv__banner project-fv__banner--pink">
+          </div>
+        </div> <!-- end project-fv -->
 
         <!-- PROJECT 3 //////////////////////////////////////////////// -->
 

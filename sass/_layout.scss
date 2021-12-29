@@ -204,11 +204,6 @@
     color: $white;
   }
 
-  // &:nth-child(odd):hover {
-  //   background-position: -100%;
-  //   // transform: scale(1.02);
-  // }
-
   &__img {
     //display
     order: 1;
@@ -272,7 +267,7 @@
   }
 
   &:not(:first-child) {
-    border-top: 1px solid $color-tertiary;
+    border-top: 1px solid rgba($beige, 0.4);
   }
 
   /* ******************************* */
@@ -383,6 +378,7 @@
   &__container {
     //display
     display: flex;
+    align-items: center;
     //position
     position: relative;
     //box-sizing
@@ -399,6 +395,10 @@
     background-image: $gradient-blue;
     height: var(--banner-height);
     padding: 0.5rem 0;
+
+    &--pink {
+      background-image: $gradient-pink;
+    }
   }
 
   &__title {
@@ -422,11 +422,6 @@
       bottom: 0;
       left: -5%;
       right: -2%;
-      // transform: translateY(-50%);
-
-      // width: calc(var(--figure-width) + var(--figure-width * 0.2));
-      // margin-bottom: $mg-btm-sm;
-      // margin-top: -2rem;
 
       font-size: $fs-s;
       font-weight: $fw-semi-bold;
@@ -434,13 +429,7 @@
       color: $color-secondary;
 
       clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
-      background-image: linear-gradient(
-        to right,
-        $dark-blue,
-        $blue,
-        $dark-blue,
-        $blue
-      );
+      background-image: $gradient-blue;
       // background-color: purple;
     }
 
@@ -449,6 +438,32 @@
       font-weight: $fw-semi-bold;
     }
 
+    .mask {
+      // width is determined in selector below, aspect ratio of 1 sets height === width.
+      // set the background color & mask-image in the modifier.
+      aspect-ratio: 1;
+      background-size: 200%;
+      background-position: 100%;
+
+      mask-size: cover;
+      -webkit-mask-size: cover;
+
+      &--sass {
+        @include bk-gradient-pink;
+
+        mask-image: url(../img/sass.svg);
+        -webkit-mask-image: url(../img/sass.svg);
+      }
+
+      &--node-js {
+        @include bk-gradient-green;
+
+        mask-image: url(../img/node-js.svg);
+        -webkit-mask-image: url(../img/node-js.svg);
+      }
+    }
+
+    .mask,
     video,
     img {
       width: var(--figure-width);
@@ -467,7 +482,7 @@
     //miscl
     // background-color: lightblue;
 
-    & > * {
+    & > *:not(.full-flex) {
       flex: 0 0 50%;
     }
   }
