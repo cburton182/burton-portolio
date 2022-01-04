@@ -95,7 +95,7 @@ $gradient-pink: linear-gradient(to right, $pink, $dark-pink, $pink, $dark-pink);
   position: relative;
   width: 100%;
   height: 97vh;
-  padding: 0 3rem;
+  padding: 0 5rem;
   background-image: $img;
   // background-size: 45%;
   // background-position: -10rem 15rem;
@@ -146,7 +146,7 @@ $gradient-pink: linear-gradient(to right, $pink, $dark-pink, $pink, $dark-pink);
 /* Added through JS, Reveals project-fv */
 .active {
   opacity: 1 !important;
-  max-height: 70rem !important;
+  max-height: max-content !important;
   // transform: scale(0);
   visibility: visible !important;
   // display: block !important;
