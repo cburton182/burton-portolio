@@ -26,7 +26,6 @@ const formContainer = document.querySelector(".contact__form-container");
 const findFullView = function (e) {
   // Links in .project and .project-fv contain a data-target attribute, pointing to the ID of the .project-fv section that should be expanded/collapsed when button is clicked.  Store the id in fullViewID.
   const fullViewID = e.target.dataset.target;
-  console.log(fullViewID);
   // Find the full-view section via ID and return.
   const fullView = document.getElementById(fullViewID);
   return fullView;

@@ -19,7 +19,6 @@
   }
   /* **************** */
 
-  @include hero-bk;
   --icon-width: 6rem;
   --heading-primary-fs: 6rem;
   --heading-secondary-fs: 3rem;
@@ -38,6 +37,11 @@
     --heading-secondary-fs: 2rem;
     --para-fs: 1.8rem;
   }
+
+  position: relative;
+  width: 100%;
+  height: 97vh;
+  padding: 0 5rem;
 
   &__icons {
     position: relative;
@@ -199,7 +203,13 @@
 
   /* swaps all bk colors once project is hovered */
   &:hover,
+  // &:focus,
+  // &:active,
   &:hover &__img,
+  // &:focus &__img,
+  // &:active &__img,
+  // &:focus &__text-container,
+  // &:active &__text-container,
   &:hover &__text-container > * {
     background-position: 100%;
   }
@@ -388,11 +398,21 @@
     margin: 0 auto;
     max-width: 200rem;
 
-    padding: 8rem 2rem 0 2rem;
+    padding: 8rem 3rem 0 3rem;
   }
 
   &__flex-container {
     display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    @media only screen and (max-width: $bp-xsmall) {
+      flex-direction: column;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      padding-bottom: 2rem;
+    }
   }
 
   &__banner {
@@ -425,7 +445,7 @@
       margin-bottom: 3rem;
 
       p {
-        width: 70%;
+        width: 90%;
         margin: 0 auto;
       }
     }
@@ -497,9 +517,13 @@
     }
   }
 
+  video {
+    background-image: url(../img/burtonpoker-large.png);
+    background-position: center -28rem;
+  }
+
   &__content {
     //display
-    flex: 1;
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -571,7 +595,7 @@
   margin: 0 auto;
   padding: 1rem;
   padding-top: 7rem;
-  background-image: url(../img/logoFinal-large.png);
+  background-image: url(../img/logo-large.png);
   background-size: 100%;
   background-repeat: no-repeat;
   overflow: hidden;

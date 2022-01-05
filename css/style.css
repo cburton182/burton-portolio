@@ -11,6 +11,7 @@ font-family: 'Ubuntu', sans-serif; */
 /* end of in use */
 /* Not in use */
 /* Not in use */
+/* Not being used */
 /* Media Query variables */
 * {
   margin: 0;
@@ -75,12 +76,14 @@ body {
   opacity: 0;
   transform: translateY(8rem); }
 
-.full-flex {
-  flex-basis: 100%;
-  margin: 4rem; }
-
 .center-text {
   text-align: center; }
+
+.margin-right {
+  margin-right: 6rem; }
+  @media only screen and (max-width: 68.75em) {
+    .margin-right {
+      margin-right: 3rem; } }
 
 /* ***************************************** */
 /* ANIMATIONS */
@@ -114,16 +117,14 @@ body {
 .title {
   /* .center-line only for dev purposes */
   /* **************** */
-  position: relative;
-  width: 100%;
-  height: 97vh;
-  padding: 0 5rem;
-  background-image: "none";
-  /* original 87% 90% size 35% */
   --icon-width: 6rem;
   --heading-primary-fs: 6rem;
   --heading-secondary-fs: 3rem;
-  --para-fs: 2.2rem; }
+  --para-fs: 2.2rem;
+  position: relative;
+  width: 100%;
+  height: 97vh;
+  padding: 0 5rem; }
   .title .center-line {
     position: absolute;
     left: 50%;
@@ -378,9 +379,17 @@ body {
     position: relative;
     margin: 0 auto;
     max-width: 200rem;
-    padding: 8rem 2rem 0 2rem; }
+    padding: 8rem 3rem 0 3rem; }
   .project-fv__flex-container {
-    display: flex; }
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; }
+    @media only screen and (max-width: 37.5em) {
+      .project-fv__flex-container {
+        flex-direction: column; } }
+    @media only screen and (max-width: 57.75em) {
+      .project-fv__flex-container {
+        padding-bottom: 2rem; } }
   .project-fv__banner {
     position: relative;
     display: flex;
@@ -405,7 +414,7 @@ body {
       align-items: center;
       margin-bottom: 3rem; }
       .project-fv__title--no-flex p {
-        width: 70%;
+        width: 90%;
         margin: 0 auto; }
     @media only screen and (max-width: 68.75em) {
       .project-fv__title {
@@ -448,8 +457,10 @@ body {
       min-width: var(--figure-min-width);
       border-top-left-radius: 5px;
       border-top-right-radius: 5px; }
+  .project-fv video {
+    background-image: url(../img/burtonpoker-large.png);
+    background-position: center -28rem; }
   .project-fv__content {
-    flex: 1;
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -495,7 +506,7 @@ body {
   margin: 0 auto;
   padding: 1rem;
   padding-top: 7rem;
-  background-image: url(../img/logoFinal-large.png);
+  background-image: url(../img/logo-large.png);
   background-size: 100%;
   background-repeat: no-repeat;
   overflow: hidden;
@@ -675,7 +686,8 @@ body {
   --img-width: 7rem;
   --link-fs: 2rem;
   display: flex;
-  align-items: center; }
+  align-items: center;
+  justify-content: center; }
   @media only screen and (max-width: 75em) {
     .project-link {
       --img-width: 5rem;
@@ -784,12 +796,24 @@ body {
     background-color: #f8f8f8;
     /* background-color is needed to hide top border from form behind the img*/
     border-radius: 50%;
-    width: 30%;
-    min-width: 20rem;
-    aspect-ratio: 1;
+    width: 24rem;
+    height: 24rem;
     border: 1px solid #242323;
     border-top-color: transparent;
-    border-right-color: transparent; }
+    border-right-color: transparent;
+    /* Add a support function for this, replaced aspect ratio method due to browser compatibility issues. */ }
+    @media only screen and (max-width: 57.75em) {
+      .form__notch {
+        width: 23rem;
+        height: 23rem; } }
+    @media only screen and (max-width: 46.25em) {
+      .form__notch {
+        width: 21rem;
+        height: 21rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .form__notch {
+        width: 20rem;
+        height: 20rem; } }
     .form__notch::after {
       /* Img is set as a background-img, percentages used as size to keep img responsive to notch.  Rotated to correct from rotation of parent*/
       content: "";
@@ -800,7 +824,7 @@ body {
       width: 95%;
       height: 95%;
       border-radius: 50%;
-      background-image: url(../img/chris-2.jpeg);
+      background-image: url(../img/chris.jpeg);
       background-size: 150%;
       background-position: center;
       transform: translate(-50%, -50%) rotate(45deg); }

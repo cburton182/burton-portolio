@@ -182,6 +182,7 @@
 
   display: flex;
   align-items: center;
+  justify-content: center;
   &__img {
     width: var(--img-width);
     &:active {
@@ -326,15 +327,32 @@
     background-color: $new-white;
     /* background-color is needed to hide top border from form behind the img*/
     border-radius: 50%;
-    width: 30%;
-    min-width: 20rem;
-    aspect-ratio: 1;
-    // height: 25rem;
+    width: 24rem;
+    height: 24rem;
     border: 1px solid rgb(36, 35, 35);
     border-top-color: transparent;
     border-right-color: transparent;
     // border-top: none;
     // border-right: none;
+
+    @media only screen and (max-width: $bp-medium) {
+      width: 23rem;
+      height: 23rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      width: 21rem;
+      height: 21rem;
+    }
+
+    @media only screen and (max-width: $bp-xsmall) {
+      width: 20rem;
+      height: 20rem;
+    }
+    /* Add a support function for this, replaced aspect ratio method due to browser compatibility issues. */
+    // width: 30%;
+    // min-width: 20rem;
+    // aspect-ratio: 1;
 
     &::after {
       /* Img is set as a background-img, percentages used as size to keep img responsive to notch.  Rotated to correct from rotation of parent*/
@@ -345,7 +363,7 @@
       width: 95%;
       height: 95%;
       border-radius: 50%;
-      background-image: url(../img/chris-2.jpeg);
+      background-image: url(../img/chris.jpeg);
       background-size: 150%;
       background-position: center;
       transform: translate(-50%, -50%) rotate(45deg);

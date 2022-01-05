@@ -157,13 +157,21 @@ $gradient-pink: linear-gradient(to right, $pink, $dark-pink, $pink, $dark-pink);
   transform: translateY(8rem);
 }
 
-.full-flex {
-  flex-basis: 100%;
-  margin: 4rem;
-}
+// .full-flex {
+//   flex-basis: 100%;
+//   margin: 4rem;
+// }
 
 .center-text {
   text-align: center;
+}
+
+.margin-right {
+  margin-right: 6rem;
+
+  @media only screen and (max-width: $bp-large) {
+    margin-right: 3rem;
+  }
 }
 
 /* ***************************************** */
